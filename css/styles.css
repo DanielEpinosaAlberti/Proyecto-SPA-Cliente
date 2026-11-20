@@ -1,0 +1,106 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Inter, Arial, sans-serif;
+}
+
+.topbar {
+  min-height: 78px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 24px;
+  color: #fff;
+  background: #072e3b;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: inherit;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.brand__logo {
+  width: 71px;
+  height: 69px;
+  border-radius: 21px;
+  object-fit: cover;
+}
+
+.brand__name {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.brand__edition {
+  color: #dbccad;
+  font-size: 10px;
+}
+
+.navigation {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  margin-left: 0;
+  white-space: nowrap;
+}
+
+.navigation a,
+.account__logout {
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.navigation a:hover,
+.account__logout:hover {
+  text-decoration: underline;
+}
+
+.account {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-left: auto;
+  white-space: nowrap;
+}
+
+.account__name,
+.account__logout {
+  font-size: 12px;
+}
+
+.account__logout {
+  color: #c6af8d;
+}
+
+@media (max-width: 760px) {
+  .topbar {
+    flex-wrap: wrap;
+    padding: 8px 16px;
+  }
+
+  .brand__logo {
+    width: 52px;
+    height: 52px;
+    border-radius: 15px;
+  }
+
+  .navigation {
+    order: 3;
+    width: 100%;
+    justify-content: space-between;
+    padding: 8px 0;
+  }
+
+  .account__name {
+    display: none;
+  }
+}
