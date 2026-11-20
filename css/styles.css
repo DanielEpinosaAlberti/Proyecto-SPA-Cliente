@@ -5,6 +5,83 @@
 body {
   margin: 0;
   font-family: Inter, Arial, sans-serif;
+  color: #1f2937;
+  background: #f3f4f6;
+}
+
+.contenido {
+  max-width: 1120px;
+  margin: 32px auto;
+  padding: 0 20px;
+}
+
+.grupos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.tarjeta-grupo,
+.detalle {
+  padding: 20px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  background: #fff;
+}
+
+.tarjeta-grupo h2,
+.detalle h1 {
+  margin-top: 0;
+}
+
+.boton {
+  padding: 9px 14px;
+  border: 0;
+  border-radius: 5px;
+  color: #fff;
+  background: #07566a;
+  cursor: pointer;
+}
+
+.boton:hover {
+  background: #063f4e;
+}
+
+.boton-secundario {
+  margin-bottom: 18px;
+  color: #1f2937;
+  background: #e5e7eb;
+}
+
+.boton-secundario:hover {
+  background: #d1d5db;
+}
+
+.datos-grupo {
+  display: grid;
+  grid-template-columns: minmax(120px, 180px) 1fr;
+  gap: 10px 16px;
+}
+
+.datos-grupo dt {
+  font-weight: 700;
+}
+
+.datos-grupo dd {
+  margin: 0;
+}
+
+.solicitudes {
+  padding-left: 20px;
+}
+
+.solicitudes li {
+  margin: 8px 0;
+}
+
+[hidden] {
+  display: none !important;
 }
 
 .topbar {

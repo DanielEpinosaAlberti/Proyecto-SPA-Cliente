@@ -15,7 +15,7 @@
 
     <nav class="navigation" aria-label="Navegación principal">
       <a href="#inicio">Home</a>
-      <a href="#groups">Groups</a>
+      <a href="#listado">Groups</a>
       <a href="#profile">Profile</a>
       <a href="#chat">Chat</a>
     </nav>
@@ -25,5 +25,17 @@
       <a class="account__logout" href="#salir">Salir</a>
     </div>
   </header>
+
+  <main class="contenido" id="inicio">
+    <section id="listado" aria-labelledby="titulo-listado">
+      <h1 id="titulo-listado">Grupos disponibles</h1>
+      <p>Explora las próximas raids y consulta sus detalles.</p>
+      <div id="grupos" class="grupos" aria-live="polite"></div>
+    </section>
+
+    <section id="detalle" class="detalle" aria-live="polite" hidden></section>
+  </main>
+
+  <script type="module" src="js/main.js"></script>
 </body>
 </html>
