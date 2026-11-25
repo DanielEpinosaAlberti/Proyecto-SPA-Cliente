@@ -1,0 +1,27 @@
+{
+  "name": "proyecto-spa-cliente",
+  "version": "1.0.0",
+  "description": "SPA Raidfinder Classic con CRUD local, formularios de registro y contacto.",
+  "private": true,
+  "type": "commonjs",
+  "scripts": {
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DanielEpinosaAlberti/Proyecto-SPA-Cliente.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DanielEpinosaAlberti/Proyecto-SPA-Cliente/issues"
+  },
+  "homepage": "https://github.com/DanielEpinosaAlberti/Proyecto-SPA-Cliente#readme",
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "eslint": "^10.15.0",
+    "globals": "^17.14.0"
+  }
+}
