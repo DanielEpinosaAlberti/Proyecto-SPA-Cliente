@@ -9,6 +9,7 @@ export const grupos = [
   { id: "grupo-008", raid: "Onyxia", nombre: "Montura y loot", lider: "Garrosh", fecha: "2026-11-28T22:00:00+01:00", idioma: "Español", capacidad: 20, roles: { tanques: 2, sanadores: 4, dps: 14 }, notas: "Una única vuelta; puntualidad requerida.", estado: "publicado" },
   { id: "grupo-009", raid: "Blackwing Lair", nombre: "Run de hermandad", lider: "Thrall_EU", fecha: "2026-11-29T20:00:00+01:00", idioma: "Español", capacidad: 40, roles: { tanques: 2, sanadores: 12, dps: 26 }, notas: "Preferencia para miembros de la hermandad.", estado: "publicado" },
   { id: "grupo-010", raid: "Zul'Gurub", nombre: "Raid de domingo", lider: "Jaina_Ice", fecha: "2026-11-30T18:00:00+01:00", idioma: "Español", capacidad: 20, roles: { tanques: 2, sanadores: 4, dps: 14 }, notas: "Reparar equipo antes de entrar.", estado: "publicado" },
+  { id: "grupo-011", raid: "Upper Blackrock Spire", nombre: "Raid de finde", lider: "Te_Apuñalo", fecha: "2026-12-30T18:00:00+01:00", idioma: "Español", capacidad: 20, roles: { tanques: 2, sanadores: 4, dps: 14 }, notas: "Los casters traed aguas.", estado: "publicado" },
 ];
 
 export const solicitudes = [

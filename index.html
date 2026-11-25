@@ -8,32 +8,300 @@
 </head>
 <body>
   <header class="topbar">
-    <a class="brand" href="#inicio" aria-label="Raidfinder Classic, inicio">
+    <a class="brand" href="#listado" aria-label="Raidfinder Classic, inicio">
       <img class="brand__logo" src="assets/raidfinder-logo.png" alt="Raidfinder Classic">
       <span class="brand__name">RAIDFINDER <span class="brand__edition">/ CLASSIC</span></span>
     </a>
 
     <nav class="navigation" aria-label="Navegación principal">
-      <a href="#inicio">Home</a>
-      <a href="#listado">Groups</a>
-      <a href="#profile">Profile</a>
-      <a href="#chat">Chat</a>
+      <a href="#listado">Home</a>
+      <a href="#usuarios">Usuarios</a>
+      <a href="#contacto">Contacto</a>
+      <a href="#mensajes">Mensajes</a>
     </nav>
 
     <div class="account">
       <span class="account__name">Kaelthas_EU · Undead Mage</span>
-      <a class="account__logout" href="#salir">Salir</a>
+      <a class="account__logout" href="#listado">Salir</a>
     </div>
   </header>
 
-  <main class="contenido" id="inicio">
-    <section id="listado" aria-labelledby="titulo-listado">
+  <main class="contenido">
+    <section id="listado" class="vista" aria-labelledby="titulo-listado">
       <h1 id="titulo-listado">Grupos disponibles</h1>
       <p>Explora las próximas raids y consulta sus detalles.</p>
       <div id="grupos" class="grupos" aria-live="polite"></div>
     </section>
 
-    <section id="detalle" class="detalle" aria-live="polite" hidden></section>
+    <section id="detalle" class="detalle vista" aria-live="polite" hidden></section>
+
+    <section id="usuarios" class="vista" aria-labelledby="titulo-usuarios" hidden>
+      <div class="vista__cabecera">
+        <div>
+          <h1 id="titulo-usuarios">Usuarios</h1>
+          <p>Crea una cuenta o edita los datos de los usuarios registrados.</p>
+        </div>
+        <p class="pista">Los campos con * son obligatorios. Las contraseñas no se guardan.</p>
+      </div>
+
+      <div class="panel">
+        <div class="panel__cabecera">
+          <h2 id="titulo-formulario-usuario">Nuevo usuario</h2>
+          <p class="pista">El mismo formulario sirve para crear y editar.</p>
+        </div>
+
+        <form id="form-registro" class="formulario" novalidate>
+          <div class="campo">
+            <label for="registro-usuario">Nombre de usuario <span class="obligatorio" aria-hidden="true">*</span><span class="sr-only"> (obligatorio)</span></label>
+            <input
+              id="registro-usuario"
+              name="usuario"
+              type="text"
+              required
+              minlength="3"
+              maxlength="20"
+              autocomplete="username"
+              aria-describedby="registro-usuario-error"
+              aria-invalid="false"
+            >
+            <p class="campo__error" id="registro-usuario-error" role="alert"></p>
+          </div>
+
+          <div class="campo">
+            <label for="registro-email">Correo electrónico <span class="obligatorio" aria-hidden="true">*</span><span class="sr-only"> (obligatorio)</span></label>
+            <input
+              id="registro-email"
+              name="email"
+              type="email"
+              required
+              maxlength="120"
+              autocomplete="email"
+              aria-describedby="registro-email-error"
+              aria-invalid="false"
+            >
+            <p class="campo__error" id="registro-email-error" role="alert"></p>
+          </div>
+
+          <div class="campo">
+            <label for="registro-contrasena">Contraseña <span class="indicador-obligatorio" id="registro-contrasena-obligatorio"><span class="obligatorio" aria-hidden="true">*</span><span class="sr-only"> (obligatorio)</span></span></label>
+            <input
+              id="registro-contrasena"
+              name="contrasena"
+              type="password"
+              required
+              minlength="8"
+              maxlength="64"
+              autocomplete="new-password"
+              aria-describedby="registro-contrasena-error registro-contrasena-ayuda"
+              aria-invalid="false"
+            >
+            <p class="campo__ayuda" id="registro-contrasena-ayuda">Mínimo 8 caracteres, una mayúscula y un número. La contraseña no se guarda en el navegador.</p>
+            <p class="campo__error" id="registro-contrasena-error" role="alert"></p>
+          </div>
+
+          <div class="campo">
+            <label for="registro-repetir">Repetir contraseña <span class="indicador-obligatorio" id="registro-repetir-obligatorio"><span class="obligatorio" aria-hidden="true">*</span><span class="sr-only"> (obligatorio)</span></span></label>
+            <input
+              id="registro-repetir"
+              name="repetir"
+              type="password"
+              required
+              minlength="8"
+              maxlength="64"
+              autocomplete="new-password"
+              aria-describedby="registro-repetir-error"
+              aria-invalid="false"
+            >
+            <p class="campo__error" id="registro-repetir-error" role="alert"></p>
+          </div>
+
+          <div class="campo">
+            <label for="registro-nacimiento">Fecha de nacimiento <span class="obligatorio" aria-hidden="true">*</span><span class="sr-only"> (obligatorio)</span></label>
+            <input
+              id="registro-nacimiento"
+              name="nacimiento"
+              type="date"
+              required
+              min="1900-01-01"
+              data-edad-minima="18"
+              autocomplete="bday"
+              aria-describedby="registro-nacimiento-error registro-nacimiento-ayuda"
+              aria-invalid="false"
+            >
+            <p class="campo__ayuda" id="registro-nacimiento-ayuda">Debes tener al menos 18 años. La fecha no puede ser futura.</p>
+            <p class="campo__error" id="registro-nacimiento-error" role="alert"></p>
+          </div>
+
+          <div class="campo campo--checkbox">
+            <input
+              id="registro-condiciones"
+              name="condiciones"
+              type="checkbox"
+              required
+              aria-describedby="registro-condiciones-error"
+              aria-invalid="false"
+            >
+            <div>
+              <label for="registro-condiciones">Acepto las condiciones del servicio <span class="obligatorio" aria-hidden="true">*</span><span class="sr-only"> (obligatorio)</span></label>
+              <p class="campo__error" id="registro-condiciones-error" role="alert"></p>
+            </div>
+          </div>
+
+          <div class="formulario__acciones">
+            <button class="boton" type="submit" id="registro-guardar">Crear usuario</button>
+            <button class="boton boton-neutro" type="button" id="registro-cancelar" hidden>Cancelar edición</button>
+            <p class="formulario__estado" id="registro-estado" role="status" aria-live="polite"></p>
+          </div>
+        </form>
+      </div>
+
+      <div class="panel">
+        <h2>Usuarios registrados</h2>
+        <div class="tabla-scroll">
+          <table class="tabla" id="tabla-usuarios" hidden>
+            <caption class="sr-only">Usuarios registrados</caption>
+            <thead>
+              <tr>
+                <th scope="col">Usuario</th>
+                <th scope="col">Correo</th>
+                <th scope="col">Nacimiento</th>
+                <th scope="col">Edad</th>
+                <th scope="col">Acciones</th>
+              </tr>
+            </thead>
+            <tbody id="usuarios-tabla"></tbody>
+          </table>
+        </div>
+        <p id="usuarios-vacio" class="mensaje-vacio">Todavía no hay usuarios registrados.</p>
+      </div>
+    </section>
+
+    <section id="contacto" class="vista" aria-labelledby="titulo-contacto" hidden>
+      <div class="vista__cabecera">
+        <div>
+          <h1 id="titulo-contacto">Contacto</h1>
+          <p>¿Necesitas ayuda con una raid o quieres proponer una nueva? Escríbenos.</p>
+        </div>
+        <a class="boton boton-neutro" href="#mensajes">Ver mensajes enviados</a>
+      </div>
+
+      <div class="panel">
+        <form id="form-contacto" class="formulario" novalidate>
+          <div class="campo">
+            <label for="contacto-nombre">Nombre <span class="obligatorio" aria-hidden="true">*</span><span class="sr-only"> (obligatorio)</span></label>
+            <input
+              id="contacto-nombre"
+              name="nombre"
+              type="text"
+              required
+              minlength="2"
+              maxlength="60"
+              autocomplete="name"
+              aria-describedby="contacto-nombre-error"
+              aria-invalid="false"
+            >
+            <p class="campo__error" id="contacto-nombre-error" role="alert"></p>
+          </div>
+
+          <div class="campo">
+            <label for="contacto-email">Correo electrónico <span class="obligatorio" aria-hidden="true">*</span><span class="sr-only"> (obligatorio)</span></label>
+            <input
+              id="contacto-email"
+              name="email"
+              type="email"
+              required
+              maxlength="120"
+              autocomplete="email"
+              aria-describedby="contacto-email-error"
+              aria-invalid="false"
+            >
+            <p class="campo__error" id="contacto-email-error" role="alert"></p>
+          </div>
+
+          <div class="campo">
+            <label for="contacto-telefono">Teléfono (opcional)</label>
+            <input
+              id="contacto-telefono"
+              name="telefono"
+              type="tel"
+              maxlength="16"
+              pattern="^\+?[0-9][0-9\s-]{5,13}[0-9]$"
+              autocomplete="tel"
+              aria-describedby="contacto-telefono-error contacto-telefono-ayuda"
+              aria-invalid="false"
+            >
+            <p class="campo__ayuda" id="contacto-telefono-ayuda">Ejemplo: +34 600 123 456. Solo números, espacios, guiones y un + inicial.</p>
+            <p class="campo__error" id="contacto-telefono-error" role="alert"></p>
+          </div>
+
+          <div class="campo">
+            <label for="contacto-motivo">Motivo <span class="obligatorio" aria-hidden="true">*</span><span class="sr-only"> (obligatorio)</span></label>
+            <select
+              id="contacto-motivo"
+              name="motivo"
+              required
+              aria-describedby="contacto-motivo-error"
+              aria-invalid="false"
+            >
+              <option value="">Selecciona un motivo</option>
+              <option value="reservar-plaza">Reservar plaza en una raid</option>
+              <option value="incidencia-grupo">Incidencia con un grupo</option>
+              <option value="proponer-raid">Proponer una raid</option>
+              <option value="problema-cuenta">Problema con mi cuenta</option>
+              <option value="otro">Otro</option>
+            </select>
+            <p class="campo__error" id="contacto-motivo-error" role="alert"></p>
+          </div>
+
+          <div class="campo campo--checkbox">
+            <input
+              id="contacto-preferencia"
+              name="prefiero_llamada"
+              type="checkbox"
+              aria-describedby="contacto-preferencia-ayuda"
+            >
+            <div>
+              <label for="contacto-preferencia">Prefiero que me llaméis</label>
+              <p class="campo__ayuda" id="contacto-preferencia-ayuda">Si marcas esta casilla, el teléfono pasa a ser obligatorio.</p>
+            </div>
+          </div>
+
+          <div class="campo">
+            <label for="contacto-mensaje">Mensaje <span class="obligatorio" aria-hidden="true">*</span><span class="sr-only"> (obligatorio)</span></label>
+            <textarea
+              id="contacto-mensaje"
+              name="mensaje"
+              required
+              minlength="20"
+              maxlength="500"
+              rows="6"
+              aria-describedby="contacto-mensaje-error contacto-mensaje-contador"
+              aria-invalid="false"
+            ></textarea>
+            <p class="campo__contador" id="contacto-mensaje-contador">0 / 500 caracteres</p>
+            <p class="campo__error" id="contacto-mensaje-error" role="alert"></p>
+          </div>
+
+          <div class="formulario__acciones">
+            <button class="boton" type="submit">Enviar mensaje</button>
+            <p class="formulario__estado" id="contacto-estado" role="status" aria-live="polite"></p>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <section id="mensajes" class="vista" aria-labelledby="titulo-mensajes" hidden>
+      <div class="vista__cabecera">
+        <div>
+          <h1 id="titulo-mensajes">Mensajes enviados</h1>
+          <p>Consulta los mensajes que has enviado desde el formulario de contacto.</p>
+        </div>
+        <a class="boton boton-neutro" href="#contacto">Enviar otro mensaje</a>
+      </div>
+
+      <div id="mensajes-lista" class="mensajes" aria-live="polite"></div>
+      <p id="mensajes-vacio" class="mensaje-vacio">Todavía no has enviado ningún mensaje.</p>
+    </section>
   </main>
 
   <script type="module" src="js/main.js"></script>

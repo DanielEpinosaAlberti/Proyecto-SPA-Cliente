@@ -92,3 +92,4 @@ export function renderizarDetalle(grupo, solicitudes, contenedor, alVolver) {
 
   contenedor.append(botonVolver, titulo, datos, tituloSolicitudes, listaSolicitudes);
 }
+
